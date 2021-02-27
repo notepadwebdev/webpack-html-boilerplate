@@ -4,5 +4,17 @@ main {
 }
 
 .container {
-  padding: 0 $l-body-pad;
+  
+}
+
+// Horizontal spacing.
+.body-pad {
+  padding-left: var(--l-block-pad);
+  padding-right: var(--l-block-pad);
+}
+
+// Vertical spacing.
+.body-pad {
+  padding-top: var(--l-block-pad);
+  padding-bottom: var(--l-block-pad);
 }

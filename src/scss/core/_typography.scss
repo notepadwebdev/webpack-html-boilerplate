@@ -1,7 +1,7 @@
 
 body {
-    font: 500 100%/1.4 $f-body;
-    color: $c-body;
+    font: 500 100%/1.4 var(--f-body);
+    color: var(--c-body);
 }
 
 h1, .h1,
@@ -11,79 +11,51 @@ h4, .h4,
 h5, .h5,
 h6, .h6 {
     margin: 0 0 0.4em;
-    font-family: $f-title;
+    font-family: var(--f-title);
 }
 
 h1,
 .h1 {
-    @media (min-width: $mq-tablet-min) {
-
-    }
-
-    @media (min-width: $mq-desktop-min) {
-
-    }
+  font-size: var(--f-h1-size);
 }
+
 h2,
 .h2 {
-    @media (min-width: $mq-tablet-min) {
-
-    }
-
-    @media (min-width: $mq-desktop-min) {
-
-    }
+  font-size: var(--f-h2-size);
 }
+
 h3,
 .h3 {
-    @media (min-width: $mq-tablet-min) {
-
-    }
-
-    @media (min-width: $mq-desktop-min) {
-
-    }
+  font-size: var(--f-h3-size);
 }
+
 h4,
 .h4 {
-    @media (min-width: $mq-tablet-min) {
-
-    }
-
-    @media (min-width: $mq-desktop-min) {
-
-    }
+  font-size: var(--f-h4-size);
 }
+
 h5,
 .h5 {
-    @media (min-width: $mq-tablet-min) {
-
-    }
-
-    @media (min-width: $mq-desktop-min) {
-
-    }
+  font-size: var(--f-h5-size);
 }
+
 h6,
 .h6 {
-    @media (min-width: $mq-tablet-min) {
-
-    }
-
-    @media (min-width: $mq-desktop-min) {
-
-    }
+  font-size: var(--f-h6-size);
 }
 
 p,
 address,
 table,
 li {
-    @media (min-width: $mq-tablet-min) {
+  font-size: var(--f-body-size);
+  
+  .lede &,
+  &.lede {
+    font-size: var(--f-lede-size);
+  }
+}
 
-    }
-
-    @media (min-width: $mq-desktop-min) {
-
-    }
+small {
+  font-size: var(--f-small-size);
 }

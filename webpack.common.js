@@ -2,6 +2,8 @@ const path = require('path')
 const glob = require('glob')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const generateHTMLPlugins = () => glob.sync('./src/**/*.html').map(
   dir => new HtmlWebpackPlugin({
@@ -28,6 +30,21 @@ module.exports = {
         use: ['babel-loader'],
       },
       {
+        test: /\.(scss|css)$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2,
+              sourceMap: false,
+            },
+          },
+          'postcss-loader',
+          'sass-loader',
+        ],
+      },
+      {
         test: /\.html$/,
         loader: 'raw-loader',
       },
@@ -46,7 +63,16 @@ module.exports = {
     ],
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'styles/[name].css',
+      chunkFilename: '[id].css',
+    }),
     new CleanWebpackPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: './src/images/', to: 'images/' },
+      ],
+    }),
     ...generateHTMLPlugins(),    
   ],
 }

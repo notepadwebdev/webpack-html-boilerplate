@@ -6,10 +6,6 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: 'src',
-    watchContentBase: true,
-    open: true,
-    hot: true,
     port: 8080,
   },
   module: {
